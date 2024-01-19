@@ -1,0 +1,913 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Lemon&family=Varela+Round&display=swap');
+:root{
+    --bgTinyLight: #f8f8f8;
+    --bgTinyRegular: #FFFFFF;
+    --bgNormalLight: #e9e9e9;
+    --bgNormalRegular: #e2e2e2;
+    --bgNormalBold: #dadada;
+    --bgDarkLight: #d1d1d1;
+    --bgDarkRegular: #c9c9c9;
+    --bgDarkBold: #bbbbbb;
+    --bgBlackDark: #12161C;
+    --bgBlackDarkActive: #232a35;
+    --bgSidebar: #eeeeee;
+    --bgSidebarActive: #EFEFEF;
+    --bgWhite: #F0F1F2;
+
+    --borderMain: rgb(255, 255, 255);
+    --borderDark: #302453;
+    --borderTable: rgba(68, 56, 102, 0.3);
+
+    --shadowMain: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+    --shadowDark: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+    --shadowHigh: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+    --shadowMid: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+
+    --colorGreen: #539165;
+    --colorGreenDark: #35724a;
+
+    --textMain: #222222;
+    --textGray: #5e5e5e;
+    --textWhite: #f1f1f1;
+
+    --colorOrange: #e08c0f;
+    --colorOrangeDark: #e0850f;
+
+    --colorYellow: #e7e428;
+    --colorYellowDark: #afac00;
+
+    --colorBlue: #0fa5e0;
+    --colorBlueDark: #1b94c4;
+
+    --colorRed: #f05c68;
+    --colorRedDark: #e01d0f;
+    --newGreenLight: #53da5e;
+    --newGreen: #68b984;
+    --newGreenDark: #528f67;
+
+    --fontVarela: 'Varela Round', sans-serif;
+}
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    scrollbar-width: none;
+}
+html{
+    height: 100%;
+}
+button{
+    font-family: var(--fontVarela);
+    cursor: pointer;
+}
+*::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+body{
+    height: 100%;
+}
+.SeyfUIText{
+    font-size: 20px;
+    line-height: 50px;
+    padding: 0 20px;
+    font-family: 'Lemon', serif;
+}
+.SeyfBody{
+    color: var(--textMain);
+    height: 100%;
+    font-family: var(--fontVarela);
+    font-style: normal;
+    font-weight: 400;
+    overflow: hidden;
+    display: flex;
+    z-index: 0;
+}
+.SeyfSidebar{
+    min-width: 250px;
+}
+.SeyfMain{
+    width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    background: var(--bgTinyLight);
+}
+.SeyfMainContent{
+    min-height: calc(100% - 300px);
+}
+/* Buttons start */
+
+.Button{
+    display: block;
+    border-radius: 5px;
+    line-height: 30px;
+    height: 30px;
+    padding: 0 10px;
+    background: var(--bgBlackDark);
+    color: var(--textWhite);
+    font-size: 13px;
+}
+.Button:hover{
+    background: var(--bgBlackDarkActive);
+}
+.Button.ButtonTransparent{
+    color: var(--textMain);
+    background: transparent;
+}
+.Button.ButtonTransparent:hover{
+    color: var(--textMain);
+    background: transparent;
+}
+.Button.ButtonGreen{
+    color: var(--textWhite);
+    background: var(--newGreen);
+}
+.Button.ButtonGreen:hover{
+    color: var(--textWhite);
+    background: var(--newGreenDark);
+}
+.Button.ButtonRed{
+    color: var(--textWhite);
+    background: var(--colorRed);
+}
+.Button.ButtonRed:hover{
+    color: var(--textWhite);
+    background: var(--colorRedDark);
+}
+.Button.ButtonOrange{
+    color: var(--textWhite);
+    background: var(--colorOrange);
+}
+.Button.ButtonOrange:hover{
+    color: var(--textWhite);
+    background: var(--colorOrangeDark);
+}
+.Button.ButtonBlue{
+    color: var(--textWhite);
+    background: var(--colorBlue);
+}
+.Button.ButtonBlue:hover{
+    color: var(--textWhite);
+    background: var(--colorBlueDark);
+}
+.Button i{
+    margin-right: 3px;
+}
+/* Buttons finish */
+/* Sidebar start */
+.Sidebar{
+    width: 250px;
+    background: var(--bgSidebar);
+    height: 100%;
+    float: left;
+}
+.Sidebar .SidebarLogo{
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
+.Sidebar .SidebarLogo img{
+    height: 60px;
+}
+.SidebarItems{
+    padding: 0px 20px 20px 20px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+.SidebarItems .SidebarItem{
+    margin: 5px 0;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 16px;
+}
+.SidebarItems .SidebarItem.SidebarItemRed .SidebarItemInfo{
+    color: var(--colorRed);
+}
+.SidebarItems .SidebarItem .SidebarItemInfo{
+    border-radius: 10px;
+    padding: 10px;
+    height: 40px;
+    line-height: 20px;
+    transition: all 0.3s;
+    display: block;
+    color: var(--textMain);
+}
+.SidebarItems .SidebarItem .SidebarItemIcon{
+    width: 25px;
+    margin-right: 7px;
+    font-size: 18px;
+    float: left;
+    text-align: center;
+}
+.SidebarItems .SidebarItem.Active .SidebarItemInfo{
+    background: var(--bgTinyLight);
+}
+.SidebarItems .SidebarItem .SidebarItemInfo:hover{
+    background: var(--bgTinyLight);
+}
+.SidebarItems .SidebarItem .SidebarItemDropDownIcon{
+    float: right;
+    font-size: 20px;
+}
+.SidebarItems .SidebarItem .SidebarItemDropDownCloseIcon{
+    float: right;
+    font-size: 20px;
+    display: none;
+}
+.SidebarItems .SidebarItem .SidebarItemDropDown{
+    display: none;
+    margin-top: 10px;
+    padding: 0px 0 10px 30px;
+    position: relative;
+    overflow: hidden;
+}
+.SidebarItems .SidebarItem .SidebarItemDropDown .SidebarItemDropDownItem{
+    display: block;
+    padding: 10px 0;
+    height: 40px;
+    position: relative;
+    padding-left: 7px;
+    border-radius: 10px;
+    color: var(--textMain);
+}
+.SidebarItems .SidebarItem .SidebarItemDropDown .SidebarItemDropDownItem:hover{
+    background: var(--bgSidebarActive);
+}
+.SidebarItems .SidebarItem .SidebarItemDropDown .SidebarItemDropDownItem:before{
+    content: "";
+    display: block;
+    position: absolute;
+    height: 50px;
+    width: 8.5px;
+    border-left: 2px solid var(--bgBlackDarkActive);
+    border-bottom: 2px solid var(--bgBlackDarkActive);
+    border-bottom-left-radius: 5px;
+    left: -18.5px;
+    top: -30px;
+}
+.SidebarItems .SidebarItem.Active .SidebarItemDropDownIcon{
+    display: none;
+}
+.SidebarItems .SidebarItem.Active .SidebarItemDropDownCloseIcon{
+    display: block;
+}
+.SidebarItems .SidebarItem.Active .SidebarItemDropDown{
+    display: block;
+}
+/* Sidebar finish */
+
+
+/* Navbar start */
+.Navbar{
+    height: 50px;
+    background: var(--bgNormalLight);
+}
+.Navbar .NavbarLeft{
+    float: left;
+}
+.Navbar .NavbarLanguages{
+    min-width: 100px;
+    height: 35px;
+    margin: 7.5px;
+    float: right;
+    position: relative;
+}
+.Navbar .NavbarLanguages .NavbarLanguagesActive{
+    height: 35px;
+}
+.Navbar .NavbarLanguages .NavbarLanguagesList{
+    position: absolute;
+    display: none;
+    background: var(--bgSidebar);
+    top: 42.5px;
+}
+.Navbar .NavbarLanguages.NavbarLanguageOpened .NavbarLanguagesList{
+    display: block;
+    z-index: 1;
+}
+.Navbar .NavbarLanguages .NavbarLanguageSelect{
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    justify-content: start !important;
+}
+.Navbar .NavbarLanguages .NavbarLanguageSelect:hover{
+    background: var(--backgroundLightActive);
+}
+.Navbar .NavbarLanguages .NavbarLanguage{
+    height: 35px;
+    float: left;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--textGray);
+    transition: color 0.3s, background-color 0.3s;
+    cursor: pointer;
+    font-family: var(--fontEuclid);
+    font-weight: 400;
+}
+.Navbar .NavbarLanguages .NavbarLanguage img{
+    width: 25px;
+    border-radius: 5px;
+    border: 1px solid var(--backgroundLightActive);
+    font-size: 11px;
+}
+.Navbar .NavbarLanguages .NavbarLanguage .NavbarLanguage__Text{
+    font-size: 11px;
+    padding-left: 5px;
+}
+.Navbar .NavbarLanguages .NavbarLanguage.LangActive{
+    color: var(--textMain);
+}
+.Navbar .NavbarLanguages .NavbarLanguage:hover{
+    color: var(--textMain);
+}
+.Navbar .NavbarRight{
+    float: right;
+    height: 50px;
+}
+.Navbar .NavbarAuth{
+    display: flex;
+    gap: 10px;
+    margin: 0 10px;
+    height: 100%;
+    align-items: center;
+}
+.Navbar .NavbarUser{
+    font-size: 12px;
+}
+.Navbar .NavbarLogin{
+}
+.Navbar .NavbarRegister{
+}
+/* Navbar finish */
+
+/* Footer start */
+.Footer{
+    height: 250px;
+    background: var(--bgNormalLight);
+}
+.Footer .FooterUpper{
+    color: var(--textMain);
+    text-align: center;
+    padding: 10px 0;
+    font-size: 13px;
+    font-weight: 500;
+}
+.Footer .FooterList{
+    border-top: 1px solid var(--borderDark);
+    padding: 20px 100px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+.Footer .FooterList .FooterMenu{
+    float: left;
+}
+.Footer .FooterMenu .FooterMenuHeader{
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.Footer .FooterMenu .FooterMenuItem{
+    font-weight: 400;
+    line-height: 27px;
+    font-size: 14px;
+    display: block;
+    color: var(--textMain);
+}
+.Footer .FooterMenu .FooterMenuItem i{
+    margin-right: 5px;
+}
+/* Footer finish */
+/* Boxes */
+.Box{
+    background: var(--bgNormalLight);
+    border-radius: 10px;
+    margin: 25px;
+    padding: 10px;
+}
+/* Boxes finish */
+/* Dashboard page start */
+.Boxes{
+    display: flex;
+    justify-content: space-around;
+}
+.Boxes .Box4{
+    width: 25%;
+}
+.Boxes .Box{
+    padding: 0 !important;
+}
+.Boxes .DashboardBox{
+    height: 100px !important;
+    width: calc(100% - 50px);
+    box-shadow: var(--shadowHigh);
+}
+.DashboardBox .DashboardBoxLeft{
+    float: left;
+    padding: 20px;
+    max-width: calc(100% - 70px);
+}
+.DashboardBox .DashboardBoxLeft .DashboardBoxLeftHeader{
+    height: 30px;
+    line-height: 30px;
+    font-size: 15px;
+    color: var(--textGray);
+}
+.DashboardBox .DashboardBoxLeft .DashboardBoxLeftContent{
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+    color: var(--textMain);
+}
+.DashboardBox .DashboardBoxIcon{
+    width: 50px;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: var(--colorBlue);
+    color: white;
+    font-size: 20px;
+    margin: 25px 15px 25px 5px;
+    border-radius: 100%;
+    overflow: hidden;
+    float: right;
+}
+.DashboardBox .DashboardBoxIcon.DashboardBoxIconBlue{
+    background-image: linear-gradient(310deg,#5e72e4,#825ee4);
+}
+.DashboardBox .DashboardBoxIcon.DashboardBoxIconGreen{
+    background-image: linear-gradient(310deg,#2dce89,#2dcecc);
+}
+.DashboardBox .DashboardBoxIcon.DashboardBoxIconRed{
+    background-image: linear-gradient(310deg,#f5365c,#f56036)
+}
+.DashboardBox .DashboardBoxIcon.DashboardBoxIconOrange{
+    background-image: linear-gradient(310deg,#fb6340,#fbb140);
+}
+.DashboardBox .DashboardBoxUpper .DashboardBoxUpperIcon i{
+    width: 50px;
+}
+/* Dashboard page finish */
+/* Tables start */
+.TableBox{
+    margin: 10px 20px;
+    background: var(--bgNormalLight);
+    border-radius: 10px;
+}
+.TableBoxHeader{
+    height: 50px;
+}
+.TableBoxHeaderTitle{
+    float: left;
+    margin: 0 20px;
+    line-height: 50px;
+    font-weight: 500;
+    font-size: 16px;
+}
+.TableBoxHeaderButton{
+    float: right;
+    height: 30px;
+    margin: 10px 20px;
+}
+.SeyfTablo{
+    width: 100%;
+    border-collapse: collapse; 
+    border-top: 1px solid var(--borderDark);
+}
+.SeyfTablo tr{
+    height: 60px;
+    padding: 5px 0;
+    margin: 0;
+    border-bottom: 1px solid var(--borderTable);
+    border-width: 0 0 1px 0;
+}
+.SeyfTablo tr:last-child{
+    border-bottom: 0;
+}
+.SeyfTablo td, .SeyfTablo th{
+    text-align: center;
+    font-size: 14px;
+    padding: 5px;
+}
+th.SeyfTabloUser{
+    text-align: left;
+}
+td.SeyfTabloUser .SeyfTabloUserImage{
+    float: left;
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    position:relative;
+    background: var(--bgDarkBold);
+    margin-right: 10px;
+    overflow: hidden;
+}
+td.SeyfTabloUser .SeyfTabloUserImage img{
+    position: absolute;
+    height: 100%;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+}
+td .SeyfTabloUserInfo{
+    float: left;
+    text-align: left;
+}
+td.SeyfTabloUser .SeyfTabloUserName{
+    height: 25px;
+    padding-top: 7px;
+    line-height: 18px;
+    color: var(--textMain);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+td.SeyfTabloUser .SeyfTabloUserEmail{
+    height: 25px;
+    padding-bottom: 7px;
+    line-height: 18px;
+    color: var(--textGray);
+    font-size: 12px;
+}
+td .SeyfTabloInfo{
+    height: 50px;
+}
+td .SeyfTabloInfo .SeyfTabloInfoLine{
+    height: 25px;
+    line-height: 18px;
+    font-size: 12px;
+    color: var(--textGray);
+}
+td .SeyfTabloInfo .SeyfTabloInfoLine.Highlighted{
+    color: var(--textMain);
+    font-weight: 500;
+}
+td .SeyfTabloInfo .SeyfTabloInfoLine:first-child{
+    padding-top: 7px;
+}
+td.SeyfTabloDate{
+    color: var(--textGray);
+}
+td.SeyfTabloActions{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    height: 50px;
+}
+/* Tables finish */
+/* Badges start */
+.Badge{
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    font-size: 11px;
+    padding: 0 9px;
+    background: var(--bgBlackDark);
+    border-radius: 10px;
+    color: var(--textWhite);
+}
+.Badge.BadgeGreen{
+    background: var(--colorGreen);
+}
+.Badge.BadgeRed{
+    background: var(--colorRed);
+}
+.Badge.BadgeOrange{
+    background: var(--colorOrange);
+}
+.Badge.BadgeBlue{
+    background: var(--colorBlue);
+}
+/* Badges finish */
+/* Auth start */
+.AppAuth{
+    height: 100%;
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.AuthBox{
+}
+.AuthBox .AuthBoxHeader{
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.AuthBox .AuthBoxBody{
+    background: var(--bgSidebar);
+    padding: 25px 15px;
+    min-width: 400px;
+    border-radius: 5px;
+}
+.AuthBox .AuthBoxFormItem{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.AuthBox .AuthBoxFormItem label{
+    display: block;
+    font-size: 14px;
+}
+.AuthBox .AuthBoxFormItem input{
+    display: block;
+    width: 100%;
+    height: 30px;
+    margin: 5px 0;
+    background: var(--bgTinyLight);
+    padding: 0 10px;
+    border-radius: 5px;
+}
+.AuthBox .AuthBoxButton{
+    margin-top: 20px;
+}
+.AuthBox .AuthBoxButton button{
+    width: 100%;
+    height: 35px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.AuthBoxOther{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+/* Auth finish */
+/* Form start */
+select.FormItem{
+    height: 30px;
+    border-radius: 5px;
+    padding: 0 5px;
+    font-family: var(--fontVarela);
+}
+.FormItemOption{
+    background: var(--bgNormalLight);
+}
+.FormItem, .FormItemWIcon{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.FormItem label, .FormItemWIcon label{
+    display: block;
+    font-size: 14px;
+}
+.FormItem input, .FormItemWIcon input{
+    display: block;
+    width: 100%;
+    height: 30px;
+    margin: 5px 0;
+    background: var(--bgTinyLight);
+    padding: 0 10px;
+    border-radius: 5px;
+}
+.FormItemWIcon .FormItemIcon{
+    margin-top: 5px;
+    width: 100%;
+    position: relative;
+    background: var(--bgTinyLight);
+    border-radius: 5px;
+    overflow: hidden;
+    height: 30px;
+}
+.FormItemWIcon .FormItemIcon i{
+    position: absolute;
+    line-height: 30px;
+    width: 30px;
+    text-align: center;
+}
+.FormItemWIcon .FormItemIcon input{
+    margin: 0;
+    padding: 0 10px 0 30px;
+}
+/* Form finish */
+/* AlertBox start */
+.AlertBox{
+    width: 100%;
+    background: var(--bgBlackDarkActive);
+    color: var(--textWhite);
+    padding: 10px 35px 10px 15px;
+    font-size: 12px;
+    border-radius: 5px;
+    position: relative;
+    margin: 5px 0;
+}
+.AlertBoxClose{
+    position: absolute;
+    right: 7px;
+    user-select: none;
+    cursor: pointer;
+    font-size: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.AlertBox.AlertBoxGreen{
+    color: var(--textWhite);
+    background: var(--newGreen);
+}
+.AlertBox.AlertBoxRed{
+    color: var(--textWhite);
+    background: var(--colorRed);
+}
+.AlertBox.AlertBoxOrange{
+    color: var(--textWhite);
+    background: var(--colorOrange);
+}
+.AlertBox.AlertBoxBlue{
+    color: var(--textWhite);
+    background: var(--colorBlue);
+}
+/* AlertBox finish */
+@media only screen and (max-width: 1000px){
+    .Sidebar{
+        min-width: 70px;
+        max-width: 70px;
+        width: 70px;
+    }
+    .SidebarItem .SideBarItemText{
+        display: none
+    }
+    .SidebarItems{
+        padding: 0;
+    }
+    .SidebarItem{
+        margin-top: 20px !important;
+    }
+    .SidebarItem.Dropdown{
+        display: none !important;
+    }
+    .SidebarItemInfo{
+        display: flex !important;
+        justify-content: center !important;
+        padding: 0 !important;
+    }
+    .SidebarItemIcon{
+        width: 40px !important;
+        height: 40px !important;
+        background: var(--bgNormalBold);
+        border-radius: 10px;
+        box-shadow: var(--shadowMid);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 !important;
+    }
+    .SidebarItemDropDownIcon, .SidebarItemDropDownCloseIcon{
+        display: none !important;
+    }
+    .SidebarItem.Active .SidebarItemInfo{
+        background: unset !important;
+    }
+    .SidebarItems .SidebarItem .SidebarItemInfo:hover {
+        background: unset !important;
+    }
+    .NavbarLeft{
+        display: none;
+    }
+    .TableBoxHeader{
+        width: unset !important;
+    }
+    .TableBox{
+        position: relative;
+        overflow: auto;
+    }
+    .FooterList{
+        display: grid !important;
+        justify-content: center !important;
+        padding: 5px 15px !important;
+    }
+    .Footer{
+        min-height: 250px;
+        height: unset;
+    }
+    .FooterMenu{
+        margin-top: 25px;
+    }
+    .AuthBox .AuthBoxBody{
+        min-width: 200px !important;
+    }
+    .Boxes{
+        overflow: auto;
+        justify-content: left;
+    }
+    .DashboardBox .DashboardBoxLeft .DashboardBoxLeftHeader{
+        font-size: 13px !important;
+    }
+    .DashboardBox .DashboardBoxLeft .DashboardBoxLeftContent{
+        font-size: 16px !important;
+    }
+}
+/* AlertBox finish */
+@media only screen and (max-width: 500px){
+    .Sidebar{
+        min-width: 70px;
+        max-width: 70px;
+        width: 70px;
+    }
+    .SidebarItem .SideBarItemText{
+        display: none
+    }
+    .SidebarItems{
+        padding: 0;
+    }
+    .SidebarItem{
+        margin-top: 20px !important;
+    }
+    .SidebarItemInfo{
+        display: flex !important;
+        justify-content: center !important;
+        padding: 0 !important;
+    }
+    .SidebarItemIcon{
+        width: 40px !important;
+        height: 40px !important;
+        background: var(--bgNormalBold);
+        border-radius: 10px;
+        box-shadow: var(--shadowMid);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 !important;
+    }
+    .SidebarItemDropDownIcon, .SidebarItemDropDownCloseIcon{
+        display: none;
+    }
+    .SidebarItems .SidebarItem .SidebarItemInfo:hover {
+        background: unset !important;
+    }
+    .NavbarLeft{
+        display: none;
+    }
+    .TableBoxHeader{
+        width: unset !important;
+    }
+    .TableBox{
+        position: relative;
+        overflow: auto;
+    }
+    .FooterList{
+        display: grid !important;
+        justify-content: center !important;
+        padding: 5px 15px !important;
+    }
+    .Footer{
+        min-height: 250px;
+        height: unset;
+    }
+    .FooterMenu{
+        margin-top: 25px;
+    }
+    .AuthBox .AuthBoxBody{
+        min-width: 200px !important;
+    }
+    .Boxes{
+        overflow: auto;
+        justify-content: left;
+    }
+}
+@media only screen and (max-width: 1500px){
+    .DashboardBoxLeft{
+        padding: 20px 5px !important;
+        width: calc(100% - 60px) !important;
+        max-width: calc(100% - 60px) !important;
+    }
+    .DashboardBoxIcon{
+        margin-right: 5px !important;
+    }
+    .DashboardBoxLeftHeader{
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-size: 11px !important;
+    }
+    .DashboardBoxLeftContent{
+        font-size: 13px !important;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}
